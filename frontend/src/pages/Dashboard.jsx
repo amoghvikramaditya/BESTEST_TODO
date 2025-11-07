@@ -919,13 +919,9 @@ export default function Dashboard() {
                         <span>
                           {selectedListId === 'all' ? 'All folders' : listsById[selectedListId]?.name ?? INBOX_LIST.name}
                         </span>
-                        {!canReorder && <span className="text-xs text-white/60">Reorder disabled while filtered</span>}
                       </>
                     ) : (
-                      <>
-                        <span className="font-medium text-white">{reminderUnreadCount} unread</span>
-                        <span>{reminderTasks.length} total reminder(s)</span>
-                      </>
+                      <span className="font-medium text-white">{reminderUnreadCount} unread</span>
                     )}
                   </div>
                 </div>
@@ -964,11 +960,6 @@ export default function Dashboard() {
                 </div>
               ) : (
                 <div className="mt-6 flex flex-wrap items-center justify-between gap-3 text-sm text-white/80">
-                  <p>
-                    Tracking{' '}
-                    <span className="font-medium text-white">{reminderTasks.length}</span> reminder
-                    {reminderTasks.length === 1 ? '' : 's'} across your folders.
-                  </p>
                   {upcomingReminder ? (
                     <p>
                       Next reminder at{' '}
