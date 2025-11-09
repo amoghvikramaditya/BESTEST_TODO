@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuth } from '../hooks/useAuth.js'
 
+const AUTH_BACKGROUND_IMAGE = '/images/dashboard-background.webp'
+
 export default function Signup() {
   const { signUp, confirmSignUp, resendSignUpCode } = useAuth()
   const [step, setStep] = useState('form')
@@ -88,8 +90,17 @@ export default function Signup() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-slate-200 px-4 py-12">
-      <div className="mx-auto w-full max-w-5xl">
+    <div ref={containerRef} className="relative min-h-screen overflow-hidden px-4 py-12">
+      <div
+        className="absolute inset-0 -z-20 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${AUTH_BACKGROUND_IMAGE})` }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950/45 via-slate-900/25 to-slate-950/55 backdrop-blur-[4px]"
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto w-full max-w-5xl">
         <div className="grid gap-8 overflow-hidden rounded-3xl bg-white/90 shadow-2xl backdrop-blur md:grid-cols-[1.15fr,0.85fr]">
           <div className="signup-card hidden flex-col justify-between bg-gradient-to-br from-brand to-brand-dark p-10 text-white md:flex">
             <div>
